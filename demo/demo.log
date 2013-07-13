@@ -1,0 +1,22 @@
+# for demo
+
+
+# WSJ AM and WSJ LM
+# 10 sentences from WSJ test set
+# originally is as follows, which has the old directory
+#/cygdrive/c/kaldi/src/onlinebin/online-wav-gmm-decode-faster scp:d:/exp/kaldi/egs/wsj/s6/data/test_online_eval92_5k/wav.10.scp /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/final.mdl /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/graph_tgpr_5k/HCLG.fst /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/graph_tgpr_5k/words.txt '1:2:3:4:5:6:7:8:9:10:11:12:13:14:15' ark,t:/cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/test_online_eval92_5k/trans.txt ark,t:/cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/test_online_eval92_5k/ali.txt 
+
+./bin/online-wav-gmm-decode-faster scp:./scp/wav.10.scp ./mdl/final.mdl ./mdl/HCLG.fst ./mdl/words.txt '1:2:3:4:5:6:7:8:9:10:11:12:13:14:15' ark,t:./results/trans.txt ark,t:./results/ali.txt
+
+# WSJ AM and VOA LM
+./bin/online-wav-gmm-decode-faster scp:./scp/wav.10.scp ./mdl/final.mdl ./mdl/voa/HCLG.fst ./mdl/voa/words.txt '1:2:3:4:5:6:7:8:9:10:11:12:13:14:15' ark,t:./results/trans.voa.txt ark,t:./results/ali.voa.txt
+
+
+# recognition of user's voice, WSJ AM and WSJ LM
+# steps
+# step 1: under dos
+# make sure to use absolute path for saving waves in local\recordsound.bat
+local\recordsound.bat 
+# step 2: under cygwin
+echo kaisheng1online data/test1.16k.wav > scp/wav.live.1.scp
+./bin/online-wav-gmm-decode-faster scp:./scp/wav.live.1.scp ./mdl/final.mdl ./mdl/HCLG.fst ./mdl/words.txt '1:2:3:4:5:6:7:8:9:10:11:12:13:14:15' ark,t:./results/trans.live.txt ark,t:./results/ali.live.txt

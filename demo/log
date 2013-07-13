@@ -1,0 +1,27 @@
+mkdir bin
+cp /cygdrive/c/kaldi/src/onlinebin/online-wav-gmm-decode-faster* bin/
+
+mkdir scp
+cp d:/exp/kaldi/egs/wsj/s6/data/test_online_eval92_5k/wav.10.scp scp/
+
+mkdir mdl
+cp /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/final.mdl mdl/
+cp /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/graph_tgpr_5k/HCLG.fst mdl/
+cp /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/graph_tgpr_5k/words.txt mdl/
+
+mkdir results
+
+mkdir data
+cp d:/exp/kaldi/data/LDC93S6A/wsj0/SI_ET_05/440/*.wav data/
+
+# prepare voa LM demo
+mkdir mdl/voa/
+cp /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/graph_VOA2/HCLG.fst mdl/voa/
+cp /cygdrive/d/exp/kaldi/egs/wsj/s6/exp/tri2a/graph_VOA2/words.txt mdl/voa/
+
+# prepare live recognition
+mkdir local/
+cp /cygdrive/d/exp/kaldi/egs/wsj/s6/local/reco* local/
+cp d:/tools/sox/*.exe bin/
+cp d:/tools/sox/*.dll bin/
+
